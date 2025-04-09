@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agents Malta - Coming Soon</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <h1>AI Agents Malta</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Coming Soon</h1>
+          <p>We're working on something exciting! AI Agents Malta is preparing to revolutionize how businesses leverage artificial intelligence.</p>
+          <div class="cta-buttons">
+            <a href="#signup" class="btn primary">Sign Up for Updates</a>
+            <a href="#about" class="btn secondary">Learn More</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="shape circle"></div>
+          <div class="shape dots"></div>
+          <div class="shape wave"></div>
+        </div>
+      </section>
+
+      <section id="signup" class="signup-section">
+        <div class="form-container">
+          <h2>Be the First to Know</h2>
+          <p>Sign up to receive updates and be notified when we launch.</p>
+          
+          <form id="signupForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name*</label>
+                <input type="text" id="firstName" name="firstName" required>
+                <span class="error-message" id="firstNameError"></span>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name*</label>
+                <input type="text" id="lastName" name="lastName" required>
+                <span class="error-message" id="lastNameError"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="companyName">Company Name*</label>
+                <input type="text" id="companyName" name="companyName" required>
+                <span class="error-message" id="companyNameError"></span>
+              </div>
+              <div class="form-group">
+                <label for="position">Position*</label>
+                <input type="text" id="position" name="position" required>
+                <span class="error-message" id="positionError"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group phone-group">
+                <label for="phoneCountry">Phone Number*</label>
+                <div class="phone-input-container">
+                  <div class="country-code-container">
+                    <div class="country-code-selector" id="countryCodeSelector">
+                      <div class="selected-code" id="selectedCode">+356</div>
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="country-dropdown" id="countryDropdown">
+                      <div class="search-container">
+                        <input type="text" id="countrySearch" placeholder="Search...">
+                      </div>
+                      <div class="country-list" id="countryList">
+                        <!-- Country codes will be populated by JavaScript -->
+                      </div>
+                    </div>
+                  </div>
+                  <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                </div>
+                <span class="error-message" id="phoneNumberError"></span>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address*</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message" id="emailError"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="interest">Area of Interest*</label>
+              <select id="interest" name="interest" required>
+                <option value="" disabled selected>Select your interest</option>
+                <option value="consultancy">Consultancy</option>
+                <option value="managed">Fully Managed AI Agents</option>
+                <option value="learning">Learning</option>
+              </select>
+              <span class="error-message" id="interestError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message (256 characters max)</label>
+              <textarea id="message" name="message" maxlength="256" rows="4"></textarea>
+              <div class="char-counter"><span id="charCount">0</span>/256</div>
+              <span class="error-message" id="messageError"></span>
+            </div>
+
+            <div class="form-group submit-group">
+              <button type="submit" class="btn primary submit-btn">
+                <span class="btn-text">Submit</span>
+                <span class="spinner"></span>
+              </button>
+            </div>
+          </form>
+          
+          <div id="formSuccess" class="form-success">
+            <i class="fas fa-check-circle"></i>
+            <h3>Thank You!</h3>
+            <p>Your information has been submitted successfully. We'll be in touch soon.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="copyright">
+          &copy; 2023 AI Agents Malta. All rights reserved.
+        </div>
+        <div class="social-links">
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
