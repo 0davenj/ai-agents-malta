@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:80"
+    environment:
+      - VITE_WEBHOOK_URL=https://your-webhook-url-here.com
