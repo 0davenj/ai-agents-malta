@@ -259,41 +259,47 @@ document.addEventListener('DOMContentLoaded', function() {
         message: document.getElementById('message').value
       };
       
-      // Simulate API call (replace with actual webhook URL)
-      setTimeout(() => {
-        // In a real implementation, you would use fetch to post to your webhook
-        // fetch('https://your-webhook-url.com', {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //   },<boltAction type="file" filePath="main.js">
-        //   body: JSON.stringify(formData),
-        // })
-        // .then(response => response.json())
-        // .then(data => {
-        //   // Show success message
-        //   form.style.display = 'none';
-        //   formSuccess.style.display = 'block';
-        // })
-        // .catch(error => {
-        //   console.error('Error:', error);
-        //   alert('There was an error submitting the form. Please try again.');
-        // })
-        // .finally(() => {
-        //   btnText.style.opacity = '1';
-        //   spinner.style.display = 'none';
-        //   submitBtn.disabled = false;
-        // });
-        
-        // For demo purposes, just show success message
-        console.log('Form data:', formData);
-        form.style.display = 'none';
-        formSuccess.style.display = 'block';
+      // Get webhook URL from environment variables
+      const webhookUrl = import.meta.env.VITE_WEBHOOK_URL;
+      
+      if (!webhookUrl) {
+        console.error('Webhook URL is not configured in .env file');
+        alert('Form submission is not configured properly. Please contact the administrator.');
         
         btnText.style.opacity = '1';
         spinner.style.display = 'none';
         submitBtn.disabled = false;
-      }, 1500);
+        return;
+      }
+      
+      // Send data to webhook
+      fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data);
+        form.style.display = 'none';
+        formSuccess.style.display = 'block';
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('There was an error submitting the form. Please try again.');
+      })
+      .finally(() => {
+        btnText.style.opacity = '1';
+        spinner.style.display = 'none';
+        submitBtn.disabled = false;
+      });
     }
   });
 });
